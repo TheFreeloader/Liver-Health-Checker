@@ -1,9 +1,0 @@
-Symptom_1,Symptom_2,Symptom_3,Diagnosis
-Fatigue,Sore throat,Fever,Flu
-Sore throat,Fatigue,Cough,Healthy
-Body ache,Headache,Fatigue,Bronchitis
-Shortness of breath,Fever,Runny nose,Cold
-Runny nose,Shortness of breath,Headache,Pneumonia
-Headache,Cough,Sore throat,
-Cough,Runny nose,Body ache,
-Fever,Body ache,Shortness of breath,

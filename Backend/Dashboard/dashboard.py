@@ -12,23 +12,16 @@ csv_path = os.path.join(path, "..", "Datasets", "cleaned_dataset.csv")
 # Load the dataset into a DataFrame
 data = pd.read_csv(csv_path)
 
-# Preprocess the data
-# Split Blood_Pressure_mmHg into Systolic_BP and Diastolic_BP
-data[["Systolic_BP", "Diastolic_BP"]] = (
-    data["Blood_Pressure_mmHg"].str.split("/", expand=True).astype(int)
-)
-data = data.drop(columns=["Blood_Pressure_mmHg"])
-
 # Encode categorical variables
 label_encoders = {}
-for column in ["Gender", "Symptom_1", "Symptom_2", "Symptom_3", "Diagnosis"]:
+for column in ["Gender", "Dataset"]:
     le = LabelEncoder()
     data[column] = le.fit_transform(data[column])
     label_encoders[column] = le
 
 # Split the data into features and target variable
-X = data.drop(columns=["Diagnosis"])  # Features
-y = data["Diagnosis"]  # Target variable
+X = data.drop(columns=["Dataset"])  # Features
+y = data["Dataset"]  # Target variable
 
 # Standardize the features
 scaler = StandardScaler()
@@ -78,23 +71,23 @@ new_data = pd.DataFrame(
     {
         "Age": [45],
         "Gender": label_encoders["Gender"].transform(["Male"]),
-        "Symptom_1": label_encoders["Symptom_1"].transform(["Cough"]),
-        "Symptom_2": label_encoders["Symptom_2"].transform(["Fever"]),
-        "Symptom_3": label_encoders["Symptom_3"].transform(["Headache"]),
-        "Heart_Rate_bpm": [80],
-        "Body_Temperature_C": [38.0],
-        "Systolic_BP": [120],
-        "Diastolic_BP": [80],
-        "Oxygen_Saturation_%": [97],
+        "Total_Bilirubin": [1.2],
+        "Direct_Bilirubin": [0.3],
+        "Alkaline_Phosphotase": [200],
+        "Alamine_Aminotransferase": [30],
+        "Aspartate_Aminotransferase": [25],
+        "Total_Protiens": [7.0],
+        "Albumin": [3.5],
+        "Albumin_and_Globulin_Ratio": [1.1],
     }
 )
 
 # Ensure the new data columns are in the same order as the training data
-new_data = new_data[data.drop(columns=["Diagnosis"]).columns]
+new_data = new_data[data.drop(columns=["Dataset"]).columns]
 
 # Transform the new data
 new_data = scaler.transform(new_data)
 
 prediction = nb.predict(new_data)
-predicted_diagnosis = label_encoders["Diagnosis"].inverse_transform(prediction)
-print(f"Predicted Diagnosis: {predicted_diagnosis[0]}")
+predicted_dataset = label_encoders["Dataset"].inverse_transform(prediction)
+print(f"Predicted Dataset: {predicted_dataset[0]}")
