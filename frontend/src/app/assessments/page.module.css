@@ -1,0 +1,134 @@
+/* page.module.css */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 92vh;
+  background-color: #f0f0f0;
+  font-family: "Montserrat";
+  position: relative;
+}
+
+.col1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure space between elements */
+  align-items: center;
+  width: 50vw;
+  height: 80vh;
+  background-color: rgb(255, 255, 255);
+  margin-left: 10%;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative; /* Ensure the pseudo-element is positioned correctly */
+}
+
+.col1::before {
+  content: "";
+  position: absolute;
+  top: -20px; /* Adjust to match the margin-top */
+  left: 0;
+  right: 0;
+  height: 20px; /* Adjust to match the margin-top */
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  z-index: -1; /* Ensure it is behind the col1 content */
+}
+
+.col2 {
+  align-items: center;
+  margin-right: 10%;
+  justify-content: center;
+  width: 25vw;
+  height: 80vh;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.header {
+  align-items: center;
+  justify-content: center;
+  margin-top: 25%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 900;
+  color: #0a3981;
+  margin-bottom: 2%;
+}
+
+.text {
+  font-size: 18px;
+  color: #000000;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  color: black;
+  flex-grow: 1;
+}
+
+.card {
+  width: fit-content;
+  border: #0a3981 2px solid;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 1%;
+  justify-content: center;
+  text-align: center;
+}
+
+.icon {
+  margin: 3%;
+}
+
+.icon1 {
+  margin: 13%;
+}
+
+.icon2 {
+  margin: 13%;
+}
+
+.image {
+  width: 50%;
+  height: 50%;
+}
+
+.image2 {
+  width: 30%;
+  height: 30%;
+}
+
+.image3 {
+  width: 30%;
+  height: 30%;
+}
+
+.button {
+  align-self: flex-end;
+}
+
+.header2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #0a3981;
+  margin-top: 7%;
+  margin-left: 10%;
+}
+
+.lineContainer {
+  margin-left: 10%;
+}
+
+.Line {
+  width: 100%;
+}

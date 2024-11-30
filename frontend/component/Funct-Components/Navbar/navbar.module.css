@@ -1,15 +1,23 @@
+/* navbar.module.css */
 .Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #ffffff;
   padding: 10px;
   height: 70px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow to navbar */
+  justify-content: flex-end; /* Justify content to the end */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.315); /* Add shadow to navbar */
+  z-index: 1000; /* Ensure it is above other content */
 }
-.Navbar .marginer{
-     margin-right: 50px;
+
+.Navbar .marginer {
+  margin-right: 50px;
 }
+
 .Navbar a {
   color: #0a3981;
   margin: 0 10px;

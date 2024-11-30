@@ -1,0 +1,39 @@
+/* start_assessment.module.css */
+.startAssesment {
+  background-color: #e38e49;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 20px;
+  font-weight: 900;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.342);
+}
+
+.startAssesment a {
+  text-decoration: none;
+  color: inherit;
+  display: flex; /* Use flexbox to align items side by side */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.text {
+  font-size: 30px;
+  font-weight: 900;
+  width: 90%;
+  padding: 10px 5px 10px 5px;
+}
+
+.iconWrapper {
+  width: 10%;
+}
+
+.icon {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+}

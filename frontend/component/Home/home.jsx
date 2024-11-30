@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./home.module.css";
-import Start_assesment from "../Funct-Components/Buttons/start_assesment";
+import Start_assesment from "../Funct-Components/Buttons/try_it_button";
 import Image from "next/image";
 import doctorImage from "../../public/images/doctor.png";
 
