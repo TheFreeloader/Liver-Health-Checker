@@ -23,19 +23,6 @@
   position: relative; /* Ensure the pseudo-element is positioned correctly */
 }
 
-.col1::before {
-  content: "";
-  position: absolute;
-  top: -20px; /* Adjust to match the margin-top */
-  left: 0;
-  right: 0;
-  height: 20px; /* Adjust to match the margin-top */
-  background-color: rgb(255, 255, 255);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  z-index: -1; /* Ensure it is behind the col1 content */
-}
-
 .col2 {
   align-items: center;
   margin-right: 10%;
@@ -73,7 +60,8 @@
   margin-left: 10%;
   margin-right: 10%;
   color: black;
-  flex-grow: 1;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .card {
@@ -131,4 +119,23 @@
 
 .Line {
   width: 100%;
+}
+
+.infoWrapper{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     margin-top: 35%;
+     padding: 20px;
+}
+.infoLogo{
+     width: 50%;
+     height: 50%;
+}
+.infoText{
+     font-size: 18px;
+     color: #000000;
+     padding: 20px;
 }

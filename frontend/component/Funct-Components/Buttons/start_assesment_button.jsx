@@ -11,8 +11,8 @@ const StartAssesmentButton = () => {
   return (
     <div className={style.startAssesment}>
       <Link
-        href="/assessments"
-        className={pathname === "/assessments" ? style.active : ""}
+        href="/assessments/survey-form"
+        className={pathname === "/assessments/survey-form" ? style.active : ''}
       >
         <div className={style.text}>Start Assessment</div>
         <div className={style.iconWrapper}>

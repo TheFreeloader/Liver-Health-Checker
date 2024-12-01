@@ -14,7 +14,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.342);
 }
 
-.startAssesment a {
+.startAssesment a{
   text-decoration: none;
   color: inherit;
   display: flex; /* Use flexbox to align items side by side */

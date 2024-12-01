@@ -1,0 +1,219 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 92vh;
+  background-color: #f0f0f0;
+  font-family: "Montserrat";
+  position: relative;
+}
+.col1 {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 80vh;
+  background-color: rgb(255, 255, 255);
+  margin-left: 10%;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative; /* Ensure the pseudo-element is positioned correctly */
+}
+
+.Header {
+  display: flex;
+  margin-top: 2%;
+  flex-direction: row;
+  align-items: center;
+  color: #0a3981;
+  font-weight: bolder;
+  margin-left: 5%;
+}
+.Header h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #0a3981;
+  font-weight: bolder;
+}
+.Header h3 {
+  padding: 20px;
+  color: #686868;
+  font-weight: bold;
+}
+.lineContainer {
+  margin-left: 5%;
+}
+.navlineActive,
+.navline {
+  width: 22%; /* Adjust width as needed */
+  margin: 0 5px; /* Add horizontal margin for spacing */
+}
+.questionHolder {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-top: 7%;
+  align-items: center;
+}
+.questionText {
+  margin-left: 3%;
+}
+
+.questionText h2 {
+  color: #0a3981;
+  font-weight: 900;
+}
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: 13%;
+  margin-top: 3%;
+  align-items: center;
+}
+.input {
+  width: 40%;
+  height: 70px;
+  border-radius: 20px;
+  background-color: #dcdcdc;
+  border-color: transparent;
+  padding: 15px;
+  color: #686868;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 20px;
+}
+.select {
+  width: 40%;
+  height: 70px;
+  border-radius: 20px;
+  background-color: #dcdcdc;
+  border-color: transparent;
+  padding: 15px;
+  color: #686868;
+  font-size: 20px;
+  margin-left: 3%;
+  -webkit-appearance: none; /* Remove default dropdown icon in Safari */
+  -moz-appearance: none; /* Remove default dropdown icon in Firefox */
+  appearance: none; /* Remove default dropdown icon in other browsers */
+  background-image: url("../../../../public/icons/dropdown.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 30px;
+  padding-right: 30px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.option {
+  background-color: #ffffff;
+  color: #686868;
+  font-size: 20px;
+  padding: 10px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+.backButtonContainer {
+  display: flex;
+  flex-direction: row;
+  margin-left: 13%;
+  margin-top: 5%;
+  margin-bottom: 34.5%;
+}
+
+.backButton {
+  color: #0a3981;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Montserrat";
+  background-color: #ffffff;
+  border: #0a3981 2px solid;
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.backButton img {
+  margin-right: 10px; /* Adjust spacing between the icon and text */
+}
+
+.backbuttontext {
+  font-size: 25px;
+}
+
+.backButton:hover {
+  background-color: #082c6c;
+  color: #ffffff;
+}
+
+.backIconHover {
+  margin-right: 10px; /* Adjust spacing for the hover icon */
+}
+
+.continueButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.continueButton {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #e38e49;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 30px;
+  width: 100%;
+  font-family: "Montserrat";
+  font-weight: 900;
+}
+
+.continueButtonContainer.step1 {
+  margin-top: -3%;
+}
+.continueButtonContainer.step2 {
+  margin-top: -12%;
+}
+.continueButtonContainer.step3 {
+  margin-top: -20.1%;
+}
+.continueButtonContainer.step4 {
+  margin-top: -20.1%;
+}
+
+.continueButton:hover {
+  background-color: #0a3981;
+}
+
+.buttonText {
+  flex: 1;
+  text-align: center;
+}
+
+.forwardIcon {
+  position: absolute;
+  right: 20px; /* Adjust as needed */
+}
+.inputWrapper2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 13%;
+  margin-top: 3%;
+  align-items: start;
+}
+.input2 {
+  width: 90%;
+  height: 70px;
+  border-radius: 20px;
+  background-color: #dcdcdc;
+  border-color: transparent;
+  padding: 15px;
+  color: #686868;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 1%;
+}

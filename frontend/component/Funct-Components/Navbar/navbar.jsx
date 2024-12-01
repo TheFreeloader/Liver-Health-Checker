@@ -15,7 +15,7 @@ const Navbar = () => {
         </Link>
         <Link
           href="/assessments"
-          className={pathname === "/assessments" ? styles.active : ""}
+          className={pathname.startsWith("/assessments") ? styles.active : ""}
         >
           Assessment
         </Link>
