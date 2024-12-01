@@ -1,10 +1,12 @@
 from flask import Flask
+from flask_cors import CORS
 from dotenv import load_dotenv
 from Routes.routes import routes
 
 load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})  # Enable CORS for localhost:3000
 
 # Register the blueprint
 app.register_blueprint(routes)

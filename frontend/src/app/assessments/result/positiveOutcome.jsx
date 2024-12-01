@@ -3,7 +3,7 @@ import Line from "../../../../public/icons/line.png";
 import style from "./page.module.css";
 import Image from "next/image";
 
-const negative = () => {
+const positive = () => {
   return (
     <div className={style.col2}>
       <div className={style.wrapper2}>
@@ -32,4 +32,4 @@ const negative = () => {
   );
 };
 
-export default negative;
+export default positive;

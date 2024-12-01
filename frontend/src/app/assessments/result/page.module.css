@@ -83,6 +83,21 @@
   margin-left: 2%;
   margin-right: 2%;
 }
+.infoWrapperGreen{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10%;
+  padding: 20px;
+  background-image:  url("../../../../public/images/green.png") ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 .infoLogo {
   width: 50%;
   height: 50%;
@@ -96,6 +111,13 @@
   font-size: 26px;
   font-weight: bold;
   color: #FF0404;
+  margin-top: 40%;
+  margin-bottom: 2%;
+}
+.infoTitleGreen{
+  font-size: 26px;
+  font-weight: bold;
+  color: #4BB543;
   margin-top: 40%;
   margin-bottom: 2%;
 }

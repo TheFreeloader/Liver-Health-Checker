@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import style from "./page.module.css";
 import NavLine from "../../../../public/icons/navLine.png";
 import NavLineInactive from "../../../../public/icons/navLineInactive.png";
 import Number2 from "../../../../public/images/number2.png";
 
-const SurveryForm2 = ({ formData, handleInputChange }) => {
+const SurveyForm2 = ({ formData, handleInputChange }) => {
   return (
     <>
       <div className={style.Header}>
@@ -29,20 +29,20 @@ const SurveryForm2 = ({ formData, handleInputChange }) => {
       </div>
       <div className={style.inputWrapper2}>
         <input
-          type="text"
-          name="totalBilirubin"
+          type="number"
+          name="Total_Bilirubin"
           placeholder="Total Bilirubin (mg/dL)"
           className={style.input2}
-          value={formData.totalBilirubin}
+          value={formData.Total_Bilirubin=== 0 ? "" : formData.Total_Bilirubin}
           onChange={handleInputChange}
           required
         />
         <input
-          type="text"
-          name="directBilirubin"
+          type="number"
+          name="Direct_Bilirubin"
           placeholder="Direct Bilirubin (mg/dL)"
           className={style.input2}
-          value={formData.directBilirubin}
+          value={formData.Direct_Bilirubin === 0 ? "" : formData.Direct_Bilirubin}
           onChange={handleInputChange}
           required
         />
@@ -51,4 +51,4 @@ const SurveryForm2 = ({ formData, handleInputChange }) => {
   );
 };
 
-export default SurveryForm2;
+export default SurveyForm2;

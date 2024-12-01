@@ -6,7 +6,7 @@ import NavLine from "../../../../public/icons/navLine.png";
 import NavLineInactive from "../../../../public/icons/navLineInactive.png";
 import Number1 from "../../../../public/images/number1.png";
 
-const SurveryForm1 = ({ formData, handleInputChange }) => {
+const SurveyForm1 = ({ formData, handleInputChange }) => {
   return (
     <>
       <div className={style.Header}>
@@ -29,18 +29,18 @@ const SurveryForm1 = ({ formData, handleInputChange }) => {
       </div>
       <div className={style.inputWrapper}>
         <input
-          type="text"
-          name="age"
+          type="number"
+          name="Age"
           placeholder="Age"
           className={style.input}
-          value={formData.age}
+          value={formData.Age === 0 ? "" : formData.Age}
           onChange={handleInputChange}
           required
         />
         <select
-          name="gender"
+          name="Gender"
           className={style.select}
-          value={formData.gender}
+          value={formData.Gender}
           onChange={handleInputChange}
           required
         >
@@ -59,4 +59,4 @@ const SurveryForm1 = ({ formData, handleInputChange }) => {
   );
 };
 
-export default SurveryForm1;
+export default SurveyForm1;

@@ -1,52 +1,63 @@
 "use client";
 import React, { useState } from "react";
 import style from "./page.module.css";
-import SurveryForm1 from "./surveyForm1";
-import SurveryForm2 from "./surveyForm2";
-import SurveryForm3 from "./surveyForm3";
-import SurveryForm4 from "./surveyForm4";
+import SurveyForm1 from "./surveyForm1";
+import SurveyForm2 from "./surveyForm2";
+import SurveyForm3 from "./surveyForm3";
+import SurveyForm4 from "./surveyForm4";
 import Image from "next/image";
 import BackIcon from "../../../../public/icons/backIcon.png";
 import BackIconWhite from "../../../../public/icons/backwhite.png";
 import ForwardIcon from "../../../../public/icons/angle-right.png";
 import Col2 from "../assessment_page_right";
-import GetResult from "../../../../component/Hooks/getResult"
+import axios from "axios";
+
 const SurveyForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
   const [formData, setFormData] = useState({
-    age: "",
-    gender: "",
-    totalBilirubin: "",
-    directBilirubin: "",
-    alkalinePhosphotase: "",
-    alamineAminotransferase: "",
-    asparateAminotransferase: "",
-    totalProteins: "",
-    albumin: "",
-    albuminGlobulinRatio: "",
+    Age: 0,
+    Gender: "",
+    Total_Bilirubin: 0,
+    Direct_Bilirubin: 0,
+    Alkaline_Phosphotase: 0,
+    Alamine_Aminotransferase: 0,
+    Aspartate_Aminotransferase: 0,
+    Total_Protiens: 0,
+    Albumin: 0,
+    Albumin_and_Globulin_Ratio: 0,
   });
+
+  const getResult = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/prediction/prediction",
+        formData
+      );
+      return response.data.prediction;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: name === "Gender" ? value : value === "" ? "" : parseFloat(value) || 0,
     });
   };
 
   const validateForm = () => {
     switch (currentStep) {
       case 1:
-      // return formData.age !== "" && formData.gender !== "";
+        return formData.Age !== 0 && formData.Gender !== "";
       case 2:
-        // Add validation for SurveyForm2
-        return true;
+        return formData.Total_Bilirubin !== 0 && formData.Direct_Bilirubin !== 0;
       case 3:
-        // Add validation for SurveyForm3
         return true;
       case 4:
-        // Add validation for SurveyForm4
         return true;
       default:
         return false;
@@ -63,9 +74,16 @@ const SurveyForm = () => {
     }
   };
 
-  const handleSubmit = (value) => {
+  const handleSubmit = async () => {
     if (validateForm()) {
-      window.location.href = `/assessments/result?value=${value}`;
+      try {
+        const value = await getResult();
+        console.log("Result:", value);
+        window.location.href = `/assessments/result?value=${(value)}`;
+      } catch (error) {
+        console.error("Error getting result:", error);
+        alert("An error occurred while submitting the form. Please try again.");
+      }
     } else {
       alert("Please fill out all required fields.");
     }
@@ -75,7 +93,6 @@ const SurveyForm = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
     } else {
-      // Navigate back to the assessment page
       window.location.href = "/assessments";
     }
   };
@@ -84,35 +101,35 @@ const SurveyForm = () => {
     switch (currentStep) {
       case 1:
         return (
-          <SurveryForm1
+          <SurveyForm1
             formData={formData}
             handleInputChange={handleInputChange}
           />
         );
       case 2:
         return (
-          <SurveryForm2
+          <SurveyForm2
             formData={formData}
             handleInputChange={handleInputChange}
           />
         );
       case 3:
         return (
-          <SurveryForm3
+          <SurveyForm3
             formData={formData}
             handleInputChange={handleInputChange}
           />
         );
       case 4:
         return (
-          <SurveryForm4
+          <SurveyForm4
             formData={formData}
             handleInputChange={handleInputChange}
           />
         );
       default:
         return (
-          <SurveryForm1
+          <SurveyForm1
             formData={formData}
             handleInputChange={handleInputChange}
           />
@@ -146,14 +163,14 @@ const SurveyForm = () => {
             }`}
           >
             {currentStep === 4 ? (
-            <button onClick={() => handleSubmit()} className={style.continueButton}>
-            <span className={style.buttonText}>Submit</span>
-            <Image
-              src={ForwardIcon}
-              alt="Forward Icon"
-              className={style.forwardIcon}
-            />
-          </button>
+              <button onClick={handleSubmit} className={style.continueButton}>
+                <span className={style.buttonText}>Submit</span>
+                <Image
+                  src={ForwardIcon}
+                  alt="Forward Icon"
+                  className={style.forwardIcon}
+                />
+              </button>
             ) : (
               <button onClick={handleContinue} className={style.continueButton}>
                 <span className={style.buttonText}>Continue</span>

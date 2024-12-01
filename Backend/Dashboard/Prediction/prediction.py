@@ -14,7 +14,7 @@ class Prediction:
         )
         encoder_files = {
             "Dataset": "Dataset_encoder.pkl",
-            "Gender": "Gender_encoder.pkl"
+            "Gender": "Gender_encoder.pkl",
         }
 
         encoders = {}
@@ -44,7 +44,7 @@ class Prediction:
         with open(scaler_path, "rb") as scaler_file:
             scaler = pickle.load(scaler_file)
 
-        return model, scaler            
+        return model, scaler
 
     def predict(self, new_data):
         # Determine which model to use based on gender
@@ -63,15 +63,31 @@ class Prediction:
         # Make prediction
         prediction = model.predict(new_data)
         predicted_dataset = self.label_encoders["Dataset"].inverse_transform(prediction)
+        print(predicted_dataset)
         if predicted_dataset[0] == 1:
-            return {"prediction": "The patient has the condition."}, 200
+            # return {"prediction": "The patient has the condition."}, 200
+            return {"prediction": 1}, 200
         elif predicted_dataset[0] == 0:
-            return {"prediction": "The patient does not have the condition."}, 200
+            # return {"prediction": "The patient does not have the condition."}, 200
+            return {"prediction": 0}, 200
         else:
             return {"Error": "Invalid Result"}, 400
 
     def new_input(
-            self,
+        self,
+        Age,
+        Gender,
+        Total_Bilirubin,
+        Direct_Bilirubin,
+        Alkaline_Phosphotase,
+        Alamine_Aminotransferase,
+        Aspartate_Aminotransferase,
+        Total_Protiens,
+        Albumin,
+        Albumin_and_Globulin_Ratio,
+    ):
+        # Create a new dataframe with the new input data
+        print(
             Age,
             Gender,
             Total_Bilirubin,
@@ -82,8 +98,7 @@ class Prediction:
             Total_Protiens,
             Albumin,
             Albumin_and_Globulin_Ratio,
-        ):
-        # Create a new dataframe with the new input data
+        )
         new_data = pd.DataFrame(
             {
                 "Age": [Age],

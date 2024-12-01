@@ -17,4 +17,4 @@ api = Api(routes, title="AI", version="1.0", description="AI API")
 api.add_namespace(prediction_ns)
 
 # Adding resources to the API
-api.add_resource(MakePrediction, "/prediction")
+prediction_ns.add_resource(MakePrediction, "/prediction")

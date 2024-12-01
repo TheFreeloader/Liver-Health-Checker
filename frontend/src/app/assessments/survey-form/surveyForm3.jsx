@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import style from "./page.module.css";
 import NavLine from "../../../../public/icons/navLine.png";
 import NavLineInactive from "../../../../public/icons/navLineInactive.png";
 import Number3 from "../../../../public/images/number3.png";
 
-const SurveryForm3 = ({ formData, handleInputChange }) => {
+const SurveyForm3 = ({ formData, handleInputChange }) => {
   return (
     <>
       <div className={style.Header}>
@@ -29,29 +29,29 @@ const SurveryForm3 = ({ formData, handleInputChange }) => {
       </div>
       <div className={style.inputWrapper2}>
         <input
-          type="text"
-          name="alkalinePhosphotase"
+          type="number"
+          name="Alkaline_Phosphotase"
           placeholder="Alkaline Phosphotase (IU/L)"
           className={style.input2}
-          value={formData.alkalinePhosphotase}
+          value={formData.Alkaline_Phosphotase === 0 ? "" : formData.Alkaline_Phosphotase}
           onChange={handleInputChange}
           required
         />
         <input
-          type="text"
-          name="alamineAminotransferase"
+          type="number"
+          name="Alamine_Aminotransferase"
           placeholder="Alamine Aminotransferase (IU/L)"
           className={style.input2}
-          value={formData.alamineAminotransferase}
+          value={formData.Alamine_Aminotransferase === 0 ? "" : formData.Alamine_Aminotransferase}
           onChange={handleInputChange}
           required
         />
         <input
-          type="text"
-          name="asparateAminotransferase"
+          type="number"
+          name="Aspartate_Aminotransferase"
           placeholder="Aspartate Aminotransferase (IU/L)"
           className={style.input2}
-          value={formData.asparateAminotransferase}
+          value={formData.Aspartate_Aminotransferase === 0 ? "" : formData.Aspartate_Aminotransferase}
           onChange={handleInputChange}
           required
         />
@@ -60,4 +60,4 @@ const SurveryForm3 = ({ formData, handleInputChange }) => {
   );
 };
 
-export default SurveryForm3;
+export default SurveyForm3;

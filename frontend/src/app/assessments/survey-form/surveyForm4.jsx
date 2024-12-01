@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import style from "./page.module.css";
 import NavLine from "../../../../public/icons/navLine.png";
 import Number4 from "../../../../public/images/number4.png";
 
-const SurveryForm4 = ({ formData, handleInputChange }) => {
+const SurveyForm4 = ({ formData, handleInputChange }) => {
   return (
     <>
       <div className={style.Header}>
@@ -28,29 +28,29 @@ const SurveryForm4 = ({ formData, handleInputChange }) => {
       </div>
       <div className={style.inputWrapper2}>
         <input
-          type="text"
-          name="totalProteins"
-          placeholder="Total Proteins (g/dL) (IU/L)"
+          type="number"
+          name="Total_Protiens"
+          placeholder="Total Proteins (g/dL)"
           className={style.input2}
-          value={formData.totalProteins}
+          value={formData.Total_Protiens === 0 ? "" : formData.Total_Protiens}
           onChange={handleInputChange}
           required
         />
         <input
-          type="text"
-          name="albumin"
+          type="number"
+          name="Albumin"
           placeholder="Albumin (g/dL)"
           className={style.input2}
-          value={formData.albumin}
+          value={formData.Albumin === 0 ? "" : formData.Albumin}
           onChange={handleInputChange}
           required
         />
         <input
-          type="text"
-          name="albuminGlobulinRatio"
+          type="number"
+          name="Albumin_and_Globulin_Ratio"
           placeholder="Albumin and Globulin Ratio (A/G ratio)"
           className={style.input2}
-          value={formData.albuminGlobulinRatio}
+          value={formData.Albumin_and_Globulin_Ratio === 0 ? "" : formData.Albumin_and_Globulin_Ratio}
           onChange={handleInputChange}
           required
         />
@@ -59,4 +59,4 @@ const SurveryForm4 = ({ formData, handleInputChange }) => {
   );
 };
 
-export default SurveryForm4;
+export default SurveyForm4;
