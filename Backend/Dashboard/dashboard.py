@@ -46,7 +46,7 @@ def train_and_evaluate(data_subset, model_filename, scaler_filename):
     # Set fixed parameters for test_size and random_state
     test_size = 0.2
     validation_size = 0.25
-    random_state = 200
+    random_state = 300
 
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(
@@ -129,28 +129,32 @@ else:
     scaler_filename = 'scaler_female.pkl'
     print("Using female model.")
 
-# Load the model and scaler from pickle files
-with open(model_filename, 'rb') as model_file:
-    model = pickle.load(model_file)
-with open(scaler_filename, 'rb') as scaler_file:
-    scaler = pickle.load(scaler_file)
+# Check if the model file exists before loading
+if os.path.exists(model_filename) and os.path.exists(scaler_filename):
+    # Load the model and scaler from pickle files
+    with open(model_filename, 'rb') as model_file:
+        model = pickle.load(model_file)
+    with open(scaler_filename, 'rb') as scaler_file:
+        scaler = pickle.load(scaler_file)
 
-# Ensure the new data columns are in the same order as the training data
-new_data = new_data.drop(columns=["Gender"])
-new_data = new_data[data.drop(columns=["Dataset", "Gender"]).columns]
+    # Ensure the new data columns are in the same order as the training data
+    new_data = new_data.drop(columns=["Gender"])
+    new_data = new_data[data.drop(columns=["Dataset", "Gender"]).columns]
 
-# Transform the new data
-new_data = scaler.transform(new_data)
+    # Transform the new data
+    new_data = scaler.transform(new_data)
 
-# Make prediction
-prediction = model.predict(new_data)
-predicted_dataset = label_encoders["Dataset"].inverse_transform(prediction)
-print(f"Predicted Dataset: {predicted_dataset[0]}")
+    # Make prediction
+    prediction = model.predict(new_data)
+    predicted_dataset = label_encoders["Dataset"].inverse_transform(prediction)
+    print(f"Predicted Dataset: {predicted_dataset[0]}")
 
-# Classify the patient based on the prediction
-if predicted_dataset[0] == 1:
-    print("The patient has the condition.")
-elif predicted_dataset[0] == 0:
-    print("The patient does not have the condition.")
+    # Classify the patient based on the prediction
+    if predicted_dataset[0] == 1:
+        print("The patient has the condition.")
+    elif predicted_dataset[0] == 0:
+        print("The patient does not have the condition.")
+    else:
+        print("Unknown condition.")
 else:
-    print("Unknown condition.")
+    print(f"Model file {model_filename} or scaler file {scaler_filename} not found. Skipping prediction.")
