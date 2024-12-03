@@ -19,8 +19,16 @@ mask = (abs(z_scores) < 3).all(axis=1)
 # Filter the DataFrame using the mask
 df_no_outliers = df_cleaned[mask]
 
-# Save the cleaned DataFrame to a new CSV file (optional)
-df_no_outliers.to_csv('cleaned_dataset.csv', index=False)
+# Split the cleaned DataFrame into male and female subsets
+df_male = df_no_outliers[df_no_outliers['Gender'] == 'Male']
+df_female = df_no_outliers[df_no_outliers['Gender'] == 'Female']
 
-# Print the cleaned DataFrame
-print(df_no_outliers)
+# Save the male and female DataFrames to separate CSV files
+df_male.to_csv('cleaned_dataset_male.csv', index=False)
+df_female.to_csv('cleaned_dataset_female.csv', index=False)
+
+# Print the cleaned DataFrames
+print("Male DataFrame:")
+print(df_male)
+print("\nFemale DataFrame:")
+print(df_female)
