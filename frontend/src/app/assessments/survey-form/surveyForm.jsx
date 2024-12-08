@@ -17,52 +17,76 @@ const SurveyForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
   const [formData, setFormData] = useState({
-    Age: 0,
+    Age: "",
     Gender: "",
-    Total_Bilirubin: 0,
-    Direct_Bilirubin: 0,
-    Alkaline_Phosphotase: 0,
-    Alamine_Aminotransferase: 0,
-    Aspartate_Aminotransferase: 0,
-    Total_Protiens: 0,
-    Albumin: 0,
-    Albumin_and_Globulin_Ratio: 0,
+    Total_Bilirubin: "",
+    Direct_Bilirubin: "",
+    Alkaline_Phosphotase: "",
+    Alamine_Aminotransferase: "",
+    Aspartate_Aminotransferase: "",
+    Total_Proteins: "",
+    Albumin: "",
+    Albumin_and_Globulin_Ratio: "",
   });
 
   const getResult = async () => {
     try {
       const response = await axios.post(
         "https://capstone-0579.onrender.com/prediction/prediction",
-        formData
+        {
+          ...formData,
+          Age: parseFloat(formData.Age),
+          Gender: formData.Gender,
+          Total_Bilirubin: parseFloat(formData.Total_Bilirubin),
+          Direct_Bilirubin: parseFloat(formData.Direct_Bilirubin),
+          Alkaline_Phosphotase: parseFloat(formData.Alkaline_Phosphotase),
+          Alamine_Aminotransferase: parseFloat(formData.Alamine_Aminotransferase),
+          Aspartate_Aminotransferase: parseFloat(formData.Aspartate_Aminotransferase),
+          Total_Proteins: parseFloat(formData.Total_Proteins),
+          Albumin: parseFloat(formData.Albumin),
+          Albumin_and_Globulin_Ratio: parseFloat(formData.Albumin_and_Globulin_Ratio),
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       return response.data.prediction;
     } catch (error) {
-      console.error(error);
+      console.error("Error getting result:", error);
       throw error;
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e, type = "text") => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]:
-        name === "Gender" ? value : value === "" ? "" : parseFloat(value) || 0,
+      [name]: type === "number" ? value : value,
     });
   };
 
-  const validateForm = () => {
+   const validateForm = () => {
     switch (currentStep) {
       case 1:
-        return formData.Age !== 0 && formData.Gender !== "";
+        return formData.Age !== "" && formData.Gender !== "";
       case 2:
         return (
-          formData.Total_Bilirubin !== 0 && formData.Direct_Bilirubin !== 0
+          formData.Total_Bilirubin !== "" && formData.Direct_Bilirubin !== ""
         );
       case 3:
-        return true;
+        return (
+          formData.Alkaline_Phosphotase !== "" &&
+          formData.Alamine_Aminotransferase !== "" &&
+          formData.Aspartate_Aminotransferase !== ""
+        );
       case 4:
-        return true;
+        return (
+          formData.Total_Proteins !== "" &&
+          formData.Albumin !== "" &&
+          formData.Albumin_and_Globulin_Ratio !== ""
+        );
       default:
         return false;
     }

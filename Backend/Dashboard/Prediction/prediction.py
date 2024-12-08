@@ -1,7 +1,6 @@
 import pandas as pd
 import pickle
 import os
-from sklearn.preprocessing import StandardScaler
 
 class Prediction:
     def __init__(self):
@@ -67,7 +66,7 @@ class Prediction:
         Alkaline_Phosphotase,
         Alamine_Aminotransferase,
         Aspartate_Aminotransferase,
-        Total_Protiens,
+        Total_Proteins,
         Albumin,
         Albumin_and_Globulin_Ratio,
     ):
@@ -80,7 +79,7 @@ class Prediction:
             Alkaline_Phosphotase,
             Alamine_Aminotransferase,
             Aspartate_Aminotransferase,
-            Total_Protiens,
+            Total_Proteins,
             Albumin,
             Albumin_and_Globulin_Ratio,
         )
@@ -93,7 +92,7 @@ class Prediction:
                 "Alkaline_Phosphotase": [Alkaline_Phosphotase],
                 "Alamine_Aminotransferase": [Alamine_Aminotransferase],
                 "Aspartate_Aminotransferase": [Aspartate_Aminotransferase],
-                "Total_Protiens": [Total_Protiens],
+                "Total_Proteins": [Total_Proteins],
                 "Albumin": [Albumin],
                 "Albumin_and_Globulin_Ratio": [Albumin_and_Globulin_Ratio],
             }

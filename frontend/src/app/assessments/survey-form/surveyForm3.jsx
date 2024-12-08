@@ -29,30 +29,30 @@ const SurveyForm3 = ({ formData, handleInputChange }) => {
       </div>
       <div className={style.inputWrapper2}>
         <input
-          type="number"
+          type="text"
           name="Alkaline_Phosphotase"
           placeholder="Alkaline Phosphotase (IU/L)"
           className={style.input2}
           value={formData.Alkaline_Phosphotase}
-          onChange={handleInputChange}
+          onChange={(e) => handleInputChange(e, "number")}
           required
         />
         <input
-          type="number"
+          type="text"
           name="Alamine_Aminotransferase"
           placeholder="Alamine Aminotransferase (IU/L)"
           className={style.input2}
           value={formData.Alamine_Aminotransferase}
-          onChange={handleInputChange}
+          onChange={(e) => handleInputChange(e, "number")}
           required
         />
         <input
-          type="number"
+          type="text"
           name="Aspartate_Aminotransferase"
           placeholder="Aspartate Aminotransferase (IU/L)"
           className={style.input2}
           value={formData.Aspartate_Aminotransferase}
-          onChange={handleInputChange}
+          onChange={(e) => handleInputChange(e, "number")}
           required
         />
       </div>

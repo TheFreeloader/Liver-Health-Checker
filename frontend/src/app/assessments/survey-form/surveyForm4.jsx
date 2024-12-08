@@ -28,30 +28,30 @@ const SurveyForm4 = ({ formData, handleInputChange }) => {
       </div>
       <div className={style.inputWrapper2}>
         <input
-          type="number"
-          name="Total_Protiens"
+          type="text"
+          name="Total_Proteins"
           placeholder="Total Proteins (g/dL)"
           className={style.input2}
-          value={formData.Total_Protiens}
-          onChange={handleInputChange}
+          value={formData.Total_Proteins || ""}
+          onChange={(e) => handleInputChange(e, "number")}
           required
         />
         <input
-          type="number"
+          type="text"
           name="Albumin"
           placeholder="Albumin (g/dL)"
           className={style.input2}
-          value={formData.Albumin}
-          onChange={handleInputChange}
+          value={formData.Albumin || ""}
+          onChange={(e) => handleInputChange(e, "number")}
           required
         />
         <input
-          type="number"
+          type="text"
           name="Albumin_and_Globulin_Ratio"
           placeholder="Albumin and Globulin Ratio (A/G ratio)"
           className={style.input2}
-          value={formData.Albumin_and_Globulin_Ratio}
-          onChange={handleInputChange}
+          value={formData.Albumin_and_Globulin_Ratio || ""}
+          onChange={(e) => handleInputChange(e, "number")}
           required
         />
       </div>

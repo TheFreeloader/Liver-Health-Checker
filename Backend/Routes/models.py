@@ -37,7 +37,7 @@ prediction_model = prediction_ns.model(
             description="Aspartate Aminotransferase",
             validate=validate_number,
         ),
-        "Total_Protiens": fields.Float(
+        "Total_Proteins": fields.Float(
             required=True, description="Total Proteins", validate=validate_number
         ),
         "Albumin": fields.Float(

@@ -29,12 +29,12 @@ const SurveyForm1 = ({ formData, handleInputChange }) => {
       </div>
       <div className={style.inputWrapper}>
         <input
-          type="number"
+          type="text"
           name="Age"
           placeholder="Age"
           className={style.input}
-          value={formData.Age === 0 ? "" : formData.Age}
-          onChange={handleInputChange}
+          value={formData.Age}
+          onChange={(e) => handleInputChange(e, "number")}
           required
         />
         <select

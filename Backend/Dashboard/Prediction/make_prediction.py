@@ -17,7 +17,7 @@ class MakePrediction(Resource):
             data["Alkaline_Phosphotase"],
             data["Alamine_Aminotransferase"],
             data["Aspartate_Aminotransferase"],
-            data["Total_Protiens"],
+            data["Total_Proteins"],
             data["Albumin"],
             data["Albumin_and_Globulin_Ratio"],
         )
