@@ -1,9 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
+import os
 from Routes.routes import routes
 from Routes.auth import EXEMPT_URLS
 
+# Load environment variables from .env file
 load_dotenv()
 
 app = Flask(__name__)

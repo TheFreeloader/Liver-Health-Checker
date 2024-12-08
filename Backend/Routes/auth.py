@@ -18,8 +18,11 @@ users = {
 }
 
 # Define the exempted websites
-EXEMPT_URLS = os.getenv("EXEMPT_URLS").split(",")
-
+exempt_urls = os.getenv("EXEMPT_URLS")
+if exempt_urls:
+    EXEMPT_URLS = exempt_urls.split(",")
+else:
+    EXEMPT_URLS = []
 
 @auth.verify_password
 def verify_password(username, password):
