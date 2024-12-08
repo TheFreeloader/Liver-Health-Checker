@@ -2,14 +2,18 @@ from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
 from Routes.routes import routes
+from Routes.auth import EXEMPT_URLS
 
-load_dotenv()  # Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})  # Enable CORS for localhost:3000
+
+# Enable CORS for the specified origins
+CORS(app, resources={r"/*": {"origins": EXEMPT_URLS}})
 
 # Register the blueprint
 app.register_blueprint(routes)
 
+# Only include this block if you want to run the development server directly
 if __name__ == '__main__':
     app.run(debug=True)

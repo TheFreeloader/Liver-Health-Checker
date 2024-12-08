@@ -32,7 +32,7 @@ const SurveyForm = () => {
   const getResult = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/prediction/prediction",
+        "https://capstone-0579.onrender.com/prediction/prediction",
         formData
       );
       return response.data.prediction;
