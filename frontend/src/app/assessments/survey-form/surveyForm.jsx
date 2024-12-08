@@ -46,11 +46,6 @@ const SurveyForm = () => {
           Albumin: parseFloat(formData.Albumin),
           Albumin_and_Globulin_Ratio: parseFloat(formData.Albumin_and_Globulin_Ratio),
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
       );
       return response.data.prediction;
     } catch (error) {
@@ -108,6 +103,15 @@ const SurveyForm = () => {
 
   const handleSubmit = async () => {
     if (validateForm()) {
+      Swal.fire({
+        title: 'Submitting...',
+        text: 'Please wait while we process your assessment.',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+
       try {
         const value = await getResult();
         Swal.fire({
