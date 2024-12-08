@@ -10,12 +10,15 @@ load_dotenv()
 
 app = Flask(__name__)
 
+# Set a secret key for session management
+app.secret_key = os.getenv("SECRET_KEY")
+
 # Enable CORS for the specified origins
-CORS(app, resources={r"/*": {"origins": EXEMPT_URLS}})
+CORS(app, resources={r"/*": {"origins": EXEMPT_URLS}}, supports_credentials=True)
 
 # Register the blueprint
 app.register_blueprint(routes)
 
 # Only include this block if you want to run the development server directly
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
