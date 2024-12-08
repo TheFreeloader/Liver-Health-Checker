@@ -24,6 +24,10 @@
   justify-content: center; /* Center items horizontally */
 }
 
+.startAssesment:hover {
+  background-color: #0A3981;
+}
+
 .text {
   font-size: 20px;
   font-weight: 900;
