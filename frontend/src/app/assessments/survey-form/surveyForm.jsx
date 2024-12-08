@@ -11,6 +11,7 @@ import BackIconWhite from "../../../../public/icons/backwhite.png";
 import ForwardIcon from "../../../../public/icons/angle-right.png";
 import Col2 from "../assessment_page_right";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const SurveyForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -45,7 +46,8 @@ const SurveyForm = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: name === "Gender" ? value : value === "" ? "" : parseFloat(value) || 0,
+      [name]:
+        name === "Gender" ? value : value === "" ? "" : parseFloat(value) || 0,
     });
   };
 
@@ -54,7 +56,9 @@ const SurveyForm = () => {
       case 1:
         return formData.Age !== 0 && formData.Gender !== "";
       case 2:
-        return formData.Total_Bilirubin !== 0 && formData.Direct_Bilirubin !== 0;
+        return (
+          formData.Total_Bilirubin !== 0 && formData.Direct_Bilirubin !== 0
+        );
       case 3:
         return true;
       case 4:
@@ -70,7 +74,11 @@ const SurveyForm = () => {
         setCurrentStep(currentStep + 1);
       }
     } else {
-      alert("Please fill out all required fields.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill out all required fields.",
+      });
     }
   };
 
@@ -78,14 +86,27 @@ const SurveyForm = () => {
     if (validateForm()) {
       try {
         const value = await getResult();
-        console.log("Result:", value);
-        window.location.href = `/assessments/result?value=${(value)}`;
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: "Your assessment has been submitted successfully.",
+        }).then(() => {
+          window.location.href = `/assessments/result?value=${value}`;
+        });
       } catch (error) {
         console.error("Error getting result:", error);
-        alert("An error occurred while submitting the form. Please try again.");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "An error occurred while submitting the form. Please try again.",
+        });
       }
     } else {
-      alert("Please fill out all required fields.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill out all required fields.",
+      });
     }
   };
 

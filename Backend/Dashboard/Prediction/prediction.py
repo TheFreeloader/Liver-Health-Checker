@@ -1,6 +1,7 @@
 import pandas as pd
 import pickle
 import os
+from sklearn.preprocessing import StandardScaler
 
 
 class Prediction:
@@ -13,8 +14,8 @@ class Prediction:
             os.path.join(os.path.dirname(__file__), "..", "Model")
         )
         encoder_files = {
-            "Dataset": "Dataset_encoder.pkl",
-            "Gender": "Gender_encoder.pkl",
+            "Dataset": "dataset_encoder.pkl",
+            "Gender": "gender_encoder.pkl",
         }
 
         encoders = {}
@@ -26,18 +27,12 @@ class Prediction:
                 encoders[key] = pickle.load(file)
         return encoders
 
-    def get_model(self, Gender):
+    def get_model_and_scaler(self):
         base_path = os.path.abspath(
             os.path.join(os.path.dirname(__file__), "..", "Model")
         )
-        if Gender == "Male":
-            model_path = os.path.join(base_path, "nb_male_model.pkl")
-            scaler_path = os.path.join(base_path, "scaler_male.pkl")
-        elif Gender == "Female":
-            model_path = os.path.join(base_path, "nb_female_model.pkl")
-            scaler_path = os.path.join(base_path, "scaler_female.pkl")
-        else:
-            raise ValueError("Invalid Gender value")
+        model_path = os.path.join(base_path, "nb_model.pkl")
+        scaler_path = os.path.join(base_path, "scaler.pkl")
 
         with open(model_path, "rb") as model_file:
             model = pickle.load(model_file)
@@ -47,12 +42,8 @@ class Prediction:
         return model, scaler
 
     def predict(self, new_data):
-        # Determine which model to use based on gender
-        gender = new_data["Gender"].values[0]
-        if gender == self.label_encoders["Gender"].transform(["Male"])[0]:
-            model, scaler = self.get_model("Male")
-        else:
-            model, scaler = self.get_model("Female")
+        # Load the model and scaler
+        model, scaler = self.get_model_and_scaler()
 
         # Drop the Gender column before transforming the data
         new_data = new_data.drop(columns=["Gender"])
@@ -65,10 +56,8 @@ class Prediction:
         predicted_dataset = self.label_encoders["Dataset"].inverse_transform(prediction)
         print(predicted_dataset)
         if predicted_dataset[0] == 1:
-            # return {"prediction": "The patient has the condition."}, 200
             return {"prediction": 1}, 200
         elif predicted_dataset[0] == 0:
-            # return {"prediction": "The patient does not have the condition."}, 200
             return {"prediction": 0}, 200
         else:
             return {"Error": "Invalid Result"}, 400
