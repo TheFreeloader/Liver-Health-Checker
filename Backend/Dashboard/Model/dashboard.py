@@ -151,7 +151,7 @@ new_data = pd.DataFrame(
         "Alkaline_Phosphotase": [630],
         "Alamine_Aminotransferase": [25],
         "Aspartate_Aminotransferase": [47],
-        "Total_Protiens": [6.1],
+        "Total_Proteins": [6.1],
         "Albumin": [2.3],
         "Albumin_and_Globulin_Ratio": [0.6],
     }
