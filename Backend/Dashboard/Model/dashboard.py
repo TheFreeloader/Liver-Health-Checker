@@ -21,7 +21,6 @@ data["Gender"] = le_gender.fit_transform(data["Gender"])
 le_dataset = LabelEncoder()
 data["Dataset"] = le_dataset.fit_transform(data["Dataset"])
 
-
 def train_and_evaluate(
     data,
     model_filename,
@@ -105,7 +104,6 @@ def train_and_evaluate(
             confusion_matrix_result,
         )
 
-
 # Train and evaluate the model using the combined dataset with a custom threshold
 print("Training model for combined dataset...")
 (
@@ -139,7 +137,6 @@ if nb is not None:
     print(f"Test Confusion Matrix:\n{confusion_matrix_result}")
 else:
     print("The model appears to be overfitting.")
-
 
 # Example of making a prediction with new data
 new_data = pd.DataFrame(
