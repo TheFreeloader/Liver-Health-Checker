@@ -3,7 +3,6 @@ import pickle
 import os
 from sklearn.preprocessing import StandardScaler
 
-
 class Prediction:
     def __init__(self):
         self.label_encoders = self.get_encoders()
@@ -44,9 +43,6 @@ class Prediction:
     def predict(self, new_data):
         # Load the model and scaler
         model, scaler = self.get_model_and_scaler()
-
-        # Drop the Gender column before transforming the data
-        new_data = new_data.drop(columns=["Gender"])
 
         # Transform the new data
         new_data = scaler.transform(new_data)

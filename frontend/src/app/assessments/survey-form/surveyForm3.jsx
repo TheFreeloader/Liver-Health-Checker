@@ -33,7 +33,7 @@ const SurveyForm3 = ({ formData, handleInputChange }) => {
           name="Alkaline_Phosphotase"
           placeholder="Alkaline Phosphotase (IU/L)"
           className={style.input2}
-          value={formData.Alkaline_Phosphotase === 0 ? "" : formData.Alkaline_Phosphotase}
+          value={formData.Alkaline_Phosphotase}
           onChange={handleInputChange}
           required
         />
@@ -42,7 +42,7 @@ const SurveyForm3 = ({ formData, handleInputChange }) => {
           name="Alamine_Aminotransferase"
           placeholder="Alamine Aminotransferase (IU/L)"
           className={style.input2}
-          value={formData.Alamine_Aminotransferase === 0 ? "" : formData.Alamine_Aminotransferase}
+          value={formData.Alamine_Aminotransferase}
           onChange={handleInputChange}
           required
         />
@@ -51,7 +51,7 @@ const SurveyForm3 = ({ formData, handleInputChange }) => {
           name="Aspartate_Aminotransferase"
           placeholder="Aspartate Aminotransferase (IU/L)"
           className={style.input2}
-          value={formData.Aspartate_Aminotransferase === 0 ? "" : formData.Aspartate_Aminotransferase}
+          value={formData.Aspartate_Aminotransferase}
           onChange={handleInputChange}
           required
         />

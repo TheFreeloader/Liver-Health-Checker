@@ -32,7 +32,7 @@ const SurveyForm4 = ({ formData, handleInputChange }) => {
           name="Total_Protiens"
           placeholder="Total Proteins (g/dL)"
           className={style.input2}
-          value={formData.Total_Protiens === 0 ? "" : formData.Total_Protiens}
+          value={formData.Total_Protiens}
           onChange={handleInputChange}
           required
         />
@@ -41,7 +41,7 @@ const SurveyForm4 = ({ formData, handleInputChange }) => {
           name="Albumin"
           placeholder="Albumin (g/dL)"
           className={style.input2}
-          value={formData.Albumin === 0 ? "" : formData.Albumin}
+          value={formData.Albumin}
           onChange={handleInputChange}
           required
         />
@@ -50,7 +50,7 @@ const SurveyForm4 = ({ formData, handleInputChange }) => {
           name="Albumin_and_Globulin_Ratio"
           placeholder="Albumin and Globulin Ratio (A/G ratio)"
           className={style.input2}
-          value={formData.Albumin_and_Globulin_Ratio === 0 ? "" : formData.Albumin_and_Globulin_Ratio}
+          value={formData.Albumin_and_Globulin_Ratio}
           onChange={handleInputChange}
           required
         />

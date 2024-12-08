@@ -33,7 +33,7 @@ const SurveyForm2 = ({ formData, handleInputChange }) => {
           name="Total_Bilirubin"
           placeholder="Total Bilirubin (mg/dL)"
           className={style.input2}
-          value={formData.Total_Bilirubin=== 0 ? "" : formData.Total_Bilirubin}
+          value={formData.Total_Bilirubin}
           onChange={handleInputChange}
           required
         />
@@ -42,7 +42,7 @@ const SurveyForm2 = ({ formData, handleInputChange }) => {
           name="Direct_Bilirubin"
           placeholder="Direct Bilirubin (mg/dL)"
           className={style.input2}
-          value={formData.Direct_Bilirubin === 0 ? "" : formData.Direct_Bilirubin}
+          value={formData.Direct_Bilirubin}
           onChange={handleInputChange}
           required
         />
