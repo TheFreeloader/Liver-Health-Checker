@@ -24,12 +24,6 @@ if exempt_urls:
 else:
     EXEMPT_URLS = []
 
-# Log the loaded environment variables for debugging
-print(f"ADMIN_USERNAME: {ADMIN_USERNAME}")
-print(f"ADMIN_PASSWORD: {ADMIN_PASSWORD}")
-print(f"EXEMPT_URLS: {EXEMPT_URLS}")
-
-
 @auth.verify_password
 def verify_password(username, password):
     # Directly compare the provided password with the stored password
