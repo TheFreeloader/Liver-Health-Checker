@@ -3,7 +3,6 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 from Routes.routes import routes
-from Routes.auth import EXEMPT_URLS
 
 # Load environment variables from .env file
 load_dotenv()
@@ -14,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
 # Enable CORS for the specified origins
-CORS(app, resources={r"/*": {"origins": EXEMPT_URLS}}, supports_credentials=True)
+CORS(app)
 
 # Register the blueprint
 app.register_blueprint(routes)

@@ -20,8 +20,7 @@ api.add_namespace(prediction_ns)
 prediction_ns.add_resource(MakePrediction, "/prediction")
 
 # Configure CORS with exemptions for specific websites
-CORS(app, resources={r"/*": {"origins": EXEMPT_URLS}}, supports_credentials=True)
-
+CORS(app, resources={r"/*": {"origins": EXEMPT_URLS}})
 
 # Protect the Swagger documentation endpoint
 @routes.before_app_request
