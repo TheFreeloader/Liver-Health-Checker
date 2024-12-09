@@ -12,6 +12,11 @@
   justify-content: flex-end; /* Justify content to the end */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.315); /* Add shadow to navbar */
   z-index: 1000; /* Ensure it is above other content */
+  border-radius: 0 !important; /* Ensure no border radius is applied */
+}
+
+.Navbar.about_active {
+  background-color: #0a3981;
 }
 
 .Navbar .marginer {
@@ -31,7 +36,7 @@
 .active {
   background-color: #0a3981;
   padding: 10px 25px;
-  border-radius: 20px;
+  border-radius: 20px; /* This applies to the active link, not the navbar */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted for bottom shadow */
 }
 
@@ -39,4 +44,21 @@
   color: #ffffff;
   text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4); /* Add text shadow for floating effect */
   font-weight: 900;
+}
+
+.about_active {
+  background-color: #ffffff;
+  padding: 10px 25px;
+  border-radius: 20px; /* This applies to the about link, not the navbar */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted for bottom shadow */
+}
+
+.Navbar a.about_active {
+  color: #0a3981;
+  text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.4); /* Add text shadow for floating effect */
+  font-weight: 900;
+}
+
+.other_links_when_about_active {
+  color: #ffffff !important; /* Ensure the color is applied */
 }

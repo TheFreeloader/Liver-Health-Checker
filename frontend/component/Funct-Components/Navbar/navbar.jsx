@@ -6,28 +6,32 @@ import styles from "./navbar.module.css";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const isAboutActive = pathname === "/about-us";
 
   return (
-    <div className={styles.Navbar}>
+    <div className={`${styles.Navbar} ${isAboutActive ? styles.about_active : ""}`}>
       <div className={styles.marginer}>
-        <Link href="/" className={pathname === "/" ? styles.active : ""}>
+        <Link
+          href="/"
+          className={`${pathname === "/" ? styles.active : ""} ${isAboutActive ? styles.other_links_when_about_active : ""}`}
+        >
           Home
         </Link>
         <Link
           href="/assessments"
-          className={pathname.startsWith("/assessments") ? styles.active : ""}
+          className={`${pathname.startsWith("/assessments") ? styles.active : ""} ${isAboutActive ? styles.other_links_when_about_active : ""}`}
         >
           Assessment
         </Link>
         <Link
           href="/about-us"
-          className={pathname === "/about-us" ? styles.active : ""}
+          className={isAboutActive ? styles.about_active : ""}
         >
           About Us
         </Link>
         <Link
           href="/contact-us"
-          className={pathname === "/contact-us" ? styles.active : ""}
+          className={`${pathname === "/contact-us" ? styles.active : ""} ${isAboutActive ? styles.other_links_when_about_active : ""}`}
         >
           Contact Us
         </Link>
