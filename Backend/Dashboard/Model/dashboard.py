@@ -27,7 +27,7 @@ def train_and_evaluate(
     scaler_filename,
     gender_encoder_filename,
     dataset_encoder_filename,
-    threshold=0.5,
+    threshold=0.4,
 ):
     features = data.drop(columns=["Dataset"])  # Features
     target = data["Dataset"]  # Target variable
@@ -43,7 +43,7 @@ def train_and_evaluate(
     # Set fixed parameters for test_size and random_state
     test_size = 0.2
     validation_size = 0.2
-    random_state = 12
+    random_state = 8130
 
     # Split the data into training and testing sets
     features_train, features_test, target_train, target_test = train_test_split(
@@ -123,7 +123,7 @@ print("Training model for combined dataset...")
     "scaler.pkl",
     "gender_encoder.pkl",
     "dataset_encoder.pkl",
-    threshold=0.5,
+    threshold=0.4,
 )
 
 if nb is not None:
