@@ -8,7 +8,7 @@ from Routes.namespace import prediction_ns, analytics_ns
 
 # Prediction
 from Dashboard.Prediction.make_prediction import MakePrediction
-from Dashboard.Analytics.get_visuals import GetDatasets, GetAgeVsDatasets
+from Dashboard.Analytics.get_visuals import GetDatasets, GetAgeVsDatasets, GetAgeDistribution
 
 app = Flask(__name__)
 routes = Blueprint("routes", __name__)
@@ -22,6 +22,7 @@ api.add_namespace(analytics_ns)
 prediction_ns.add_resource(MakePrediction, "/prediction")
 analytics_ns.add_resource(GetDatasets, "/analytics")
 analytics_ns.add_resource(GetAgeVsDatasets, "/analytics/age")
+analytics_ns.add_resource(GetAgeDistribution, "/analytics/age_distribution")
 
 
 # Configure CORS with exemptions for specific websites

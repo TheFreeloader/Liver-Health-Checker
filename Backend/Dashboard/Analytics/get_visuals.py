@@ -12,3 +12,8 @@ class GetAgeVsDatasets(Resource):
     def get(self):
         response = DataVisualization().age_vs_datasets()
         return response
+
+class GetAgeDistribution(Resource):
+    def get(self):
+        response = DataVisualization().age_distribution()
+        return response

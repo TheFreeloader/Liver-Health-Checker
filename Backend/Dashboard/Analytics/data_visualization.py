@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+from collections import Counter
 
 class DataVisualization:
     def __init__(self):
@@ -34,3 +35,8 @@ class DataVisualization:
         df = self.data
         # Return the Age and Dataset columns as a dictionary
         return df[["Age", "Dataset"]].to_dict(orient="records")
+    
+    def age_distribution(self):
+        df = self.data
+        age_counts = Counter(df["Age"])
+        return dict(age_counts)

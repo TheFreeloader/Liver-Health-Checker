@@ -6,7 +6,6 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  min-height: 200vh;
   color: black;
   font-family: "Montserrat";
   background-color: #0a3981;
@@ -169,7 +168,20 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.hidden {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+.highlight{
+  font-size: 25px !important;
+  font-weight: bold;
+}
+
+.div_container_graph {
+  position: relative; /* Ensure the container is positioned relative for the overlay */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: black;
+  font-family: "Montserrat";
+  min-height: 100vh; /* Full viewport height */
+  transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
 }
