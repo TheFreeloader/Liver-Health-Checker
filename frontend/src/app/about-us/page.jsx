@@ -1,11 +1,17 @@
-import React from 'react'
-import Data_visualization from './data_visualization'
+import React from 'react';
+import DataVisualization from './data_visualization';
+import style from './page.module.css';
+
 const AboutUs = () => {
+  console.log("AboutUs component rendered"); // Debugging log
+
   return (
     <>
-    <Data_visualization />
+      <div className={style.container}>
+        <DataVisualization />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default AboutUs
+export default AboutUs;

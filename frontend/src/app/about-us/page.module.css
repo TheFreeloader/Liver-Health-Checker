@@ -6,10 +6,11 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  min-height: 200vh;
   color: black;
   font-family: "Montserrat";
   background-color: #0a3981;
-  overflow: hidden; /* Ensure the overlay does not overflow */
+  transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
 }
 
 .container::before {
@@ -30,14 +31,27 @@
   z-index: 1; /* Ensure the content is above the overlay */
 }
 
-.container h1 {
+.div_container {
+  position: relative; /* Ensure the container is positioned relative for the overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: black;
+  font-family: "Montserrat";
+  min-height: 100vh; /* Full viewport height */
+  transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+}
+
+.div_container h1 {
   margin-top: 2%;
   font-weight: 900;
   color: #ffffff;
   font-size: 70px;
 }
 
-.container h2 {
+.div_container h2 {
   margin-top: 2%;
   margin-bottom: 1%;
   color: white;
@@ -49,6 +63,15 @@
   font-size: medium;
 }
 
+.goal_p {
+  margin-top: 2%;
+  font-size: 23px !important;
+  font-weight: bold;
+  color: white;
+  width: 60% !important;
+  text-align: center;
+}
+
 .description {
   display: flex;
   flex-direction: row;
@@ -56,21 +79,21 @@
   margin-top: 2%;
 }
 
-.container ul {
+.div_container ul {
   margin-right: 2%;
   font-size: 20px;
   font-weight: bold;
   color: white;
 }
 
-.container p {
+.div_container p {
   width: 80%;
   font-size: 18px;
   font-weight: lighter;
   color: white;
 }
 
-.container li {
+.div_container li {
   font-size: 18px;
   font-weight: 500;
   color: white;
@@ -139,4 +162,14 @@
 
 .table_container tr:hover {
   background-color: #fde9e9;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
