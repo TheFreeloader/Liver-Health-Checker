@@ -12,19 +12,13 @@
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  max-height: 100vh;
-  overflow-x: hidden;
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 * {
@@ -44,6 +38,6 @@ a {
   }
 }
 
-.content{
+.content {
   padding-top: 60px;
 }

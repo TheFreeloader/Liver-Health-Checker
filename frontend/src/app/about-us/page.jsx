@@ -7,7 +7,7 @@ const AboutUs = () => {
 
   return (
     <>
-      <div className={style.container}>
+      <div className={`${style.container} ${style.backgroundOverlay}`}>
         <DataVisualization />
       </div>
     </>

@@ -1,6 +1,5 @@
 /* Existing styles */
 .container {
-  position: relative; /* Ensure the container is positioned relative for the overlay */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,10 +8,11 @@
   color: black;
   font-family: "Montserrat";
   background-color: #0a3981;
-  transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-.container::before {
+.backgroundOverlay::before {
   content: "";
   position: absolute;
   top: 0;
@@ -21,6 +21,8 @@
   height: 100%;
   background-image: url("../../../public/images/about_bg.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: 0; /* Ensure the overlay is behind the content */
   background-color: rgba(0, 0, 0, 0.5); /* Transparent black film */
 }
@@ -184,4 +186,19 @@
   font-family: "Montserrat";
   min-height: 100vh; /* Full viewport height */
   transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+  overflow: hidden;
+}
+
+.scrollContainer {
+  height: 100vh; /* Full viewport height */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+.scrollContainer > * {
+  scroll-snap-align: start; /* Snap to the start of each child element */
+  height: 100vh; /* Each child takes full viewport height */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
 }
