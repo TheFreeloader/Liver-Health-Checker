@@ -24,6 +24,7 @@
   z-index: 0; /* Ensure the overlay is behind the content */
   background-color: rgba(0, 0, 0, 0.5); /* Transparent black film */
 }
+
 .container > * {
   position: relative;
   z-index: 1; /* Ensure the content is above the overlay */
@@ -106,15 +107,19 @@
   font-weight: bold;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* Customize the scrollbar */
 .table_container tbody::-webkit-scrollbar {
-  display: none;
+  width: 10px; /* Adjust the width to make it smaller */
+  height: 15px; /* Adjust the height to make it smaller */
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.table_container tbody {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+.table_container tbody::-webkit-scrollbar-thumb {
+  background-color: #e38e49; /* Change the color of the scrollbar thumb */
+  border-radius: 5px; /* Add rounded corners to the scrollbar thumb */
+}
+
+.table_container tbody::-webkit-scrollbar-track {
+  background: #ffffff; /* Change the color of the scrollbar track */
 }
 
 .table_container thead,

@@ -75,6 +75,7 @@ const DataVisualization = () => {
       <table className={style.table_container}>
         <thead>
           <tr>
+            <th>Instance</th>
             <th>Age</th>
             <th>Gender</th>
             <th>Total Bilirubin</th>
@@ -91,6 +92,7 @@ const DataVisualization = () => {
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
+              <td>{index + 1}</td>
               <td>{item.Age}</td>
               <td>{item.Gender}</td>
               <td>{item.Total_Bilirubin}</td>

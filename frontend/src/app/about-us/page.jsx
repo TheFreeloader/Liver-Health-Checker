@@ -4,7 +4,6 @@ const AboutUs = () => {
   return (
     <>
     <Data_visualization />
-    <div>About Us</div>
     </>
   )
 }
