@@ -13,7 +13,20 @@ class GetAgeVsDatasets(Resource):
         response = DataVisualization().age_vs_datasets()
         return response
 
+
 class GetAgeDistribution(Resource):
     def get(self):
         response = DataVisualization().age_distribution()
+        return response
+
+
+class GetGenderDistribution(Resource):
+    def get(self):
+        response = DataVisualization().gender_distribution()
+        return response
+
+
+class GetGenderBasedPatientCount(Resource):
+    def get(self):
+        response = DataVisualization().gender_based_patient_count()
         return response
