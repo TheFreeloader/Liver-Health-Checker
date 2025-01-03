@@ -189,23 +189,25 @@ const SurveyForm = () => {
   return (
     <>
       <div className={style.col1}>
-        {renderForm()}
+        <div className={style.content}>
+          {renderForm()}
+        </div>
+        <div className={style.backButtonContainer}>
+          <button
+            className={style.backButton}
+            onClick={handleBack}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <Image
+              src={isHovered ? BackIconWhite : BackIcon}
+              alt="Back Icon"
+              className={isHovered ? style.backIconHover : ""}
+            />
+            <span className={style.backbuttontext}>Go Back</span>
+          </button>
+        </div>
         <div className={style.buttonContainer}>
-          <div className={style.backButtonContainer}>
-            <button
-              className={style.backButton}
-              onClick={handleBack}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <Image
-                src={isHovered ? BackIconWhite : BackIcon}
-                alt="Back Icon"
-                className={isHovered ? style.backIconHover : ""}
-              />
-              <span className={style.backbuttontext}>Go Back</span>
-            </button>
-          </div>
           <div
             className={`${style.continueButtonContainer} ${
               style[`step${currentStep}`] || ""

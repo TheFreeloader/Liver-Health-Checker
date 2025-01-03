@@ -103,8 +103,31 @@
   height: 30%;
 }
 
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto; /* Push the button to the bottom */
+  width: 100%; /* Ensure the button takes the full width */
+}
+
 .button {
-  align-self: flex-end;
+  align-self: center; /* Center the button horizontally */
+  background-color: #e38e49;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 20px;
+  font-weight: 900;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.342);
+}
+
+.button:hover {
+  background-color: #0A3981;
 }
 
 .header2 {
@@ -123,21 +146,23 @@
   width: 100%;
 }
 
-.infoWrapper{
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     text-align: center;
-     margin-top: 35%;
-     padding: 20px;
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 35%;
+  padding: 20px;
 }
-.infoLogo{
-     width: 50%;
-     height: 50%;
+
+.infoLogo {
+  width: 50%;
+  height: 50%;
 }
-.infoText{
-     font-size: 18px;
-     color: #000000;
-     padding: 20px;
+
+.infoText {
+  font-size: 18px;
+  color: #000000;
+  padding: 20px;
 }

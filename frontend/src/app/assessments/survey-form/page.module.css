@@ -19,6 +19,15 @@
   position: relative; /* Ensure the pseudo-element is positioned correctly */
 }
 
+/* Ensure the button container is pushed to the bottom */
+.buttonContainer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .Header {
   display: flex;
   margin-top: 2%;
@@ -117,7 +126,6 @@
   flex-direction: row;
   margin-left: 13%;
   margin-top: 5%;
-  margin-bottom: 34.5%;
 }
 
 .backButton {
@@ -154,6 +162,8 @@
 .continueButtonContainer {
   display: flex;
   justify-content: center;
+  width: 100%;
+  margin-top: auto; /* Ensure the continue button is at the bottom */
 }
 
 .continueButton {
@@ -169,19 +179,6 @@
   width: 100%;
   font-family: "Montserrat";
   font-weight: 900;
-}
-
-.continueButtonContainer.step1 {
-  margin-top: -3%;
-}
-.continueButtonContainer.step2 {
-  margin-top: -12%;
-}
-.continueButtonContainer.step3 {
-  margin-top: -20.1%;
-}
-.continueButtonContainer.step4 {
-  margin-top: -20.1%;
 }
 
 .continueButton:hover {

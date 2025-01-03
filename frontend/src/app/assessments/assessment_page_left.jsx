@@ -10,8 +10,7 @@ import Button from "../../../component/Funct-Components/Buttons/start_assesment_
 const Col1 = () => {
   return (
     <div className={style.col1}>
-      (
-      <>
+      <div className={style.content}>
         <div className={style.header}>
           <h1 className={style.title}>Liver Health Assessment</h1>
           <p className={style.text}>
@@ -63,9 +62,8 @@ const Col1 = () => {
             </p>
           </div>
         </div>
-        <Button className={style.button} />
-      </>
-      )
+      </div>
+      <Button className={style.button} />
     </div>
   );
 };
