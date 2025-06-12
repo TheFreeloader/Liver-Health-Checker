@@ -52,7 +52,7 @@ Patients with liver disease have been continuously increasing because of excessi
 ## 👥 Team Members
 
 *(Add your team information here)*
-- **[Cyrl John Navarro]** - *developer* - [cyjnavarro@gmail.com
+- **[Cyrl John Navarro]** - *developer* - [cyjnavarro@gmail.com]
 - **[Joshua Ivan Villanueva]** - *Project Manager* - [joivillanueva@gbox.ncf.edu.ph]
 - **[Jeffrey Agdoro]** - *UI/UX* - [jagdoro@gbox.ncf.edu.ph]
 
