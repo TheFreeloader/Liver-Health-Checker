@@ -33,12 +33,10 @@ Patients with liver disease have been continuously increasing because of excessi
 
 ## 🛠️ Technology Stack
 
-*(Add your specific technologies here, for example:)*
-- **Frontend:** React.js, HTML5, CSS3
-- **Backend:** Node.js, Express.js
-- **Machine Learning:** Python, Scikit-learn, Pandas, NumPy
-- **Database:** MongoDB/MySQL
-- **Deployment:** Docker, AWS/Heroku
+- **Frontend:** Nest.js, HTML5, CSS3
+- **Backend:** Flask
+- **Machine Learning:** Python, Scikit-learn, Pandas, NumPy, Matplotlib
+- **Deployment:** Render for the Backend and Vercel for the Frontend
 
 
 
@@ -51,7 +49,6 @@ Patients with liver disease have been continuously increasing because of excessi
 
 ## 👥 Team Members
 
-*(Add your team information here)*
 - **[Cyrl John Navarro]** - *developer* - [cyjnavarro@gmail.com]
 - **[Joshua Ivan Villanueva]** - *Project Manager* - [joivillanueva@gbox.ncf.edu.ph]
 - **[Jeffrey Agdoro]** - *UI/UX* - [jagdoro@gbox.ncf.edu.ph]
