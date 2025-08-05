@@ -29,15 +29,8 @@ const Navbar = () => {
         >
           About Us
         </Link>
-        <Link
-          href="/contact-us"
-          className={`${pathname === "/contact-us" ? styles.active : ""} ${isAboutActive ? styles.other_links_when_about_active : ""}`}
-        >
-          Contact Us
-        </Link>
       </div>
     </div>
   );
 };
-
 export default Navbar;

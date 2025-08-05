@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import style from "./page.module.css";
+import SyncLoader from "react-spinners/SyncLoader";
 import {
   ScatterChart,
   Scatter,
@@ -110,7 +111,7 @@ const DataVisualization2 = () => {
     }
   };
   if (loading) {
-    return <div>Loading...</div>;
+    return <div style={{ textAlign: "center", margin: "20px" }}><SyncLoader /></div>;
   }
 
   return (
